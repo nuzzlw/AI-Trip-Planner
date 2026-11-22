@@ -17,7 +17,7 @@ import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
 interface CarouselProps {
-  items: JSX.Element[];
+  items: React.JSX.Element[];
   initialScroll?: number;
 }
 
@@ -145,7 +145,10 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose } = useContext(CarouselContext);
 
-  useOutsideClick(containerRef, () => handleClose());
+ useOutsideClick(
+  containerRef as React.RefObject<HTMLDivElement>,
+  () => handleClose()
+);
 
   const handleOpen = () => setOpen(true);
 
