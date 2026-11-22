@@ -4,7 +4,9 @@ const path = require("path");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com"],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

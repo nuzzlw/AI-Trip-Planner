@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Groq from "groq-sdk";
-import { premiumAj, freeAj } from "../arcjet/route";
+import { premiumAj, freeAj } from "../arcjet/config";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! });
